@@ -1,0 +1,114 @@
+<h:html xmlns="http://www.w3.org/2002/xforms"
+	        xmlns:h="http://www.w3.org/1999/xhtml"
+	        xmlns:ev="http://www.w3.org/2001/xml-events"
+	        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	        xmlns:jr="http://openrosa.org/javarosa">
+	        <h:head>
+	                <h:title>CommTrack_resource_supply_request</h:title>
+	
+	                <model>
+	                        <instance>
+	                                <!-- the XML inside here is what gets filled out and submitted when you complete the form -->
+	                                <resource_supply_request>
+	                                        <form_version>0.0.2</form_version>
+	                                        <userID />
+	                                        <locationID />
+											<request_date />
+	                                        <resourceID />
+	                                        <request_remark />
+	                                </resource_supply_request>
+	                        </instance>
+	
+	                        <!-- binds allow us to add properties to the questions, like data types, skip logic, etc.-->
+	   
+							<bind nodeset="resourceID" required="true()" />
+							<bind nodeset="userID" required="true()" type="int" />
+	                        <bind nodeset="locationID" required="true()"  />
+						    <bind nodeset="request_date" required="true()" type="date" constraint=". &gt; today()" jr:constraintMsg="Request day must be today or future!" />
+	                     
+	                </model>
+	        </h:head>
+	
+	        <h:body>
+	                <!-- This is where we define the questions that the user will fill out -->
+	                <input ref="userID">
+	                        <label>What is your userID?</label>
+	                </input>
+					
+					<select1 ref="locationID">
+	                        <label>Please select location of the resource</label>
+	
+	                        <item>
+	                                <label>Dar</label>
+	                                <value>1000</value>
+	                        </item>
+	                        <item>
+	                                <label>Mwanza</label>
+	                                <value>1001</value>
+	                        </item>
+	                        <item>
+	                                <label>Arusha</label>
+	                                <value>1002</value>
+	                        </item>
+	                        <item>
+	                                <label>Dodoma</label>
+	                                <value>1003</value>
+	                        </item>
+	                </select1>                
+	
+	                <input ref="request_date">
+	                        <label>select the date of your request?</label>
+	                </input>
+
+					<select1 ref="resourceID">
+	                        <label>What resource do you require?</label>
+	
+	                        <item>
+	                                <label>Car</label>
+	                                <value>1000</value>
+	                        </item>
+	                        <item>
+	                                <label>Table</label>
+	                                <value>1001</value>
+	                        </item>
+	                        <item>
+	                                <label>Fuel</label>
+	                                <value>1002</value>
+	                        </item>
+	                        <item>
+	                                <label>House</label>
+	                                <value>1003</value>
+	                        </item>
+	                </select1>
+			
+					<select1 ref="request_remark">
+	                        <label>Remarks</label>
+							<item>
+	                                <label>Exellent</label>
+	                                <value>exellent</value>
+	                        </item>
+							<item>
+	                                <label>Very Good</label>
+	                                <value>veryGood</value>
+	                        </item>
+							<item>
+	                                <label>Good</label>
+	                                <value>good</value>
+	                        </item>
+							<item>
+	                                <label>Bad</label>
+	                                <value>bad</value>
+	                        </item>
+							<item>
+	                                <label>Not Working</label>
+	                                <value>notWorking</value>
+	                        </item>
+							<item>
+	                                <label>Not required</label>
+	                                <value>notRequired</value>
+	                        </item>
+	                </select1>
+				
+				
+	        </h:body>
+	</h:html>

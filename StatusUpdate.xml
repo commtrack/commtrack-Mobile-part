@@ -1,0 +1,94 @@
+<h:html xmlns="http://www.w3.org/2002/xforms"
+	        xmlns:h="http://www.w3.org/1999/xhtml"
+	        xmlns:ev="http://www.w3.org/2001/xml-events"
+	        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	        xmlns:jr="http://openrosa.org/javarosa">
+	        <h:head>
+	                <h:title>CommTrack_status_update</h:title>
+	
+	                <model>
+	                        <instance>
+	                                <!-- the XML inside here is what gets filled out and submitted when you complete the form -->
+	                                <status_update>
+	                                        <form_version>0.0.2</form_version>
+											<userID />
+	                                        <categoryID />
+	                                        <locationID />
+	                                        <resourceName />
+	                                        <description />
+	                                </status_update>
+	                        </instance>
+	
+	                        <!-- binds allow us to add properties to the questions, like data types, skip logic, etc.-->
+	   
+							<bind nodeset="userID" required="true()" type="int" />
+							<bind nodeset="categoryID" required="true()" />							
+	                        <bind nodeset="locationID" required="true()" />
+							<bind nodeset="resourceName" required="true()" />
+							<bind nodeset="description" required="true()" />
+						    
+	                     
+	                </model>
+	        </h:head>
+	
+	        <h:body>
+	                <!-- This is where we define the questions that the user will fill out -->
+	                	<input ref="userID">
+	                        <label>What is your userID?</label>
+						</input>
+						
+						<select1 ref="categoryID">
+	                        <label>Please select category of the resource</label>
+	
+	                        <item>
+	                                <label>Automobile</label>
+	                                <value>1000</value>
+	                        </item>
+	                        <item>
+	                                <label>Computer</label>
+	                                <value>1001</value>
+	                        </item>
+	                        <item>
+	                                <label>Hardware</label>
+	                                <value>1002</value>
+	                        </item>
+	                        <item>
+	                                <label>Electronic</label>
+	                                <value>1003</value>
+	                        </item>
+	                </select1>
+					
+					<select1 ref="locationID">
+	                        <label>Please select location of the resource</label>
+	
+	                        <item>
+	                                <label>Dar</label>
+	                                <value>1000</value>
+	                        </item>
+	                        <item>
+	                                <label>Mwanza</label>
+	                                <value>1001</value>
+	                        </item>
+	                        <item>
+	                                <label>Arusha</label>
+	                                <value>1002</value>
+	                        </item>
+	                        <item>
+	                                <label>Dodoma</label>
+	                                <value>1003</value>
+	                        </item>
+	                </select1>
+					
+					
+					
+					<input ref="resourceName">
+	                        <label>Resource name?</label>
+	                </input>                
+			
+					<input ref="description">
+	                        <label>Description of resource</label>
+	                </input>
+				
+				
+	        </h:body>
+	</h:html>
